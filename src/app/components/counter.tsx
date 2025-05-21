@@ -1,0 +1,15 @@
+"use client";
+
+import { useState } from 'react';
+import { Button } from './button';
+
+export function Counter() {
+  const [ count, setCount ] = useState(0);
+
+  return (
+    <div>
+      <Button label="click me" onClick={() => setCount(count + 1)} />
+      Counter desu: {count}
+    </div>
+  )
+}
