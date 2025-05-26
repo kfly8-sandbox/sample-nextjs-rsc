@@ -1,27 +1,24 @@
 'use client';
 
-import { Suspense } from 'react';
-import Traditional from './suspense-demo/traditional';
-import { UseSuspense, SuspenseFallback } from './suspense-demo/use-suspense';
+import { use } from 'react';
 
-export default function SuspenseDemo() {
+import { fetchHello } from '@/app/api/hello';
+
+export function SuspenseDemo() {
+  const message = use(fetchHello());
+
   return (
-    <div className="max-w-4xl mx-auto my-8 p-4">
-      <h1 className="text-2xl font-bold mb-6">非同期データ取得の比較</h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div>
-          <h2 className="text-xl font-bold mb-4">従来の方法</h2>
-          <Traditional />
-        </div>
-
-        <div>
-          <h2 className="text-xl font-bold mb-4">Suspense + use()フックの方法</h2>
-          <Suspense fallback={<SuspenseFallback />}>
-            <UseSuspense />
-          </Suspense>
-        </div>
-      </div>
+    <div className="p-4 bg-white rounded-md shadow-md">
+      <div className="text-xl font-bold">{message}</div>
     </div>
   );
 }
+
+export function SuspenseFallback() {
+  return (
+    <div className="p-4 border border-gray-200 rounded-md animate-pulse">
+      <div className="h-8 bg-gray-300 rounded w-1/3 mb-2"></div>
+    </div>
+  );
+}
+

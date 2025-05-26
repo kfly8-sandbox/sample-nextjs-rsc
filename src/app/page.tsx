@@ -1,5 +1,6 @@
 import { Counter } from './components/counter';
-import SuspenseDemo from './components/suspense-demo';
+import { SuspenseDemo } from './components/suspense-demo';
+import { ServerCounter } from './components/server-counter';
 
 export default function Home() {
   return (
@@ -13,6 +14,10 @@ export default function Home() {
 
       <div>
         <SuspenseDemo />
+      </div>
+
+      <div>
+        <ServerCounter />
       </div>
     </div>
   );
