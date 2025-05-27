@@ -1,8 +1,8 @@
-import { Counter } from './components/counter';
-import { SuspenseDemo } from './components/suspense-demo';
-import { ServerCounter } from './components/server-counter';
+import { Counter } from '@/components/counter';
+import { SuspenseDemo } from '@/components/suspense-demo';
+import { ServerCounter } from '@/components/server-counter';
 
-export default function Home() {
+export default function Root() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold underline mb-8">Next.js RSCデモ</h1>
